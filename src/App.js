@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
 
+
 function App() {
+  const [statistics, setStatistics] = useState(() => [
+    {
+      date: "2023-01-01",
+      alarms: "100",
+      issues: "10"
+    },
+    {
+      date: "2023-01-02",
+      alarms: "101",
+      issues: "12"
+    },
+    {
+      date: "2023-01-03",
+      alarms: "102",
+      issues: "11"
+    },
+    {
+      date: "2023-01-04",
+      alarms: "98",
+      issues: "9"
+    }
+  ])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Hello</p>
+      
+      {statistics.map((item, index) => (
+        <div>{item.date}: {item.alarms}</div>
+      ))}
     </div>
   );
 }
